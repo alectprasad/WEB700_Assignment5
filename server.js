@@ -108,6 +108,17 @@ app.get("/students/:num", (req, res) => {
     })
 });
 
+app.post("/student/update", (req, res) => {
+    collegeData.updateStudent(req.body)
+    .then(() => {
+        res.redirect("/students");
+    })
+    .catch((error) => {
+        console.log(error)
+        res.status(400).send(`<script>alert('Something Went Wrong');</script>`);
+    })
+});
+
 app.get("/courses", (req, res) => {
     collegeData.getCourses()
     .then((courses) => {

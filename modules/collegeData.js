@@ -114,4 +114,28 @@ module.exports.addStudent = function (requestBody) {
     });
 };
 
-
+module.exports.updateStudent = function (requestBody) {
+    return new Promise(function (resolve, reject) {
+        try {
+            var studentIndex = null;
+            for (let i = 0; i < dataCollection.students.length; i++) {
+                if (dataCollection.students[i].studentNum == requestBody.studentNum) {
+                    studentIndex = i;
+                    break;
+                }
+            }
+            if(studentIndex == null) {
+                reject("Invalid Student ID"); return;
+            }
+            if(requestBody.TA === undefined)
+                requestBody.TA = false;
+            else
+                requestBody.TA = true;
+                dataCollection.students[studentIndex] = requestBody;
+            resolve("Student Updated");
+        } catch (err) {
+            console.log(err)
+            reject(err);
+        }
+    });
+};
