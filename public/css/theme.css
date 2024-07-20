@@ -14,8 +14,10 @@
     font-family: "Open Sans", sans-serif  !important;
     color: white !important;
 }
-.nav-link:hover, .nav-item .active {
-    color: gray  !important;
+.nav-link:hover, .nav-item.active {
+    background-color: gray !important;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translate3d(0px, -1px, 0px);
 }
 body {
     background-color: #313338
@@ -61,12 +63,12 @@ input[type="text"], input[type="email"], select {
     padding: 5px;
     border: 0;
     border-radius: 5px;
-    background-color: rgba(0,0,0,.2);
-    color:white;
+    background-color: rgba(0,0,0,.2) !important;
+    color:white !important;
 }
 input[type="text"]:focus:hover, input[type="email"]:focus:hover {
-    background-color: rgba(0,0,0,.2);
-    color:white;
+    background-color: rgba(0,0,0,.2) !important;
+    color:white !important;
     border: 2px blue;
 }
 .checkpoint-label {
