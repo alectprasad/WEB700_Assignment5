@@ -17,7 +17,7 @@ const exphbs = require('express-handlebars')
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
-
+app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', exphbs.engine({ 
     extname: '.hbs',
     helpers: { 
@@ -114,7 +114,7 @@ app.post("/student/update", (req, res) => {
         res.redirect("/students");
     })
     .catch((error) => {
-        console.log(error)
+        console.log(error);
         res.status(400).send(`<script>alert('Something Went Wrong');</script>`);
     })
 });
