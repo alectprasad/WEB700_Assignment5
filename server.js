@@ -13,25 +13,29 @@ var express = require("express");
 var app = express();
 const collegeData = require('./modules/collegeData');
 const path = require('path');
+const exphbs = require('express-handlebars')
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));
 
+app.engine('.hbs', exphbs.engine({ extname: '.hbs' }));
+app.set('view engine', '.hbs');
+
 // setup a 'route' to listen on the default url path
 app.get("/", (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, 'views', 'home.html'));
+    res.render('home', {layout: 'main'});
 });
 
 app.get("/about", (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, 'views', 'about.html'));
+    res.render('about', {layout: 'main'});
 });
 
 app.get("/htmlDemo", (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, 'views', 'htmlDemo.html'));
+    res.render('htmlDemo', {layout: 'main'});
 });
 
 app.get("/addStudent", (req, res) => {
-    res.status(200).sendFile(path.join(__dirname, 'views', 'addStudent.html'));
+    res.render('addStudent', {layout: 'main'});
 });
 
 app.post("/students/add", (req, res) => {

@@ -18,7 +18,8 @@
   "homepage": "https://github.com/alectprasad/WEB700_Assignment5#readme",
   "description": "",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.3"
